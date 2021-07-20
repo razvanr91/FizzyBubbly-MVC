@@ -7,6 +7,7 @@
 
 body {
     color: var(--dark-color);
+    height: 100vh;
 }
 
 nav {
@@ -27,15 +28,19 @@ h6 {
 }
 
 header {
-    min-height: 5vh;
+    min-height: 8vh;
 }
 
 footer {
-    min-height: 5vh;
+    min-height: 8vh;
+}
+
+.container {
+    height: 100%;
 }
 
 #content {
-    min-height: 90vh;
+    min-height: 84vh;
 }
 
 .footer-text {

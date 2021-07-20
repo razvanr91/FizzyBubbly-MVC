@@ -23,7 +23,7 @@ namespace FizzyBubbly_MVC.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Fizzy()
         {
             return View();
         }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FizzyBubbly_MVC</title>
+    <title>@ViewData["Title"] - FizzyBubbly</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
 <body>
     <header>
         <!-- Nav Section -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-auto">
             <div class="container-fluid">
                 <!-- Change App Name Here -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
@@ -40,14 +40,14 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Fizzy">See the Fizz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://rroman-portfolio.netlify.app">About</a>
+                            <a class="nav-link text-light" target="_blank" href="https://rroman-portfolio.netlify.app">About</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main role="main" class="flex-shrink-0" id="content">
+    <main role="main" id="content">
         @RenderBody()
     </main>
 
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-center">
-                    <img src="img/RazvanRomanWhiteLogo.svg" alt="Razvan Roman Logo" height="35">
+                    <img src="~/img/RazvanRomanWhiteLogo.svg" alt="Razvan Roman Logo" height="35">
                 </div>
                 <div class="col d-flex align-items-center justify-content-center justify-content-lg-end">
                     <div class="row">
