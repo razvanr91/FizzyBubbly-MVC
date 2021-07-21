@@ -1,4 +1,5 @@
-﻿@{
+﻿@model FizzyBubbly_MVC.Models.FizzBuzz;
+@{
     ViewData["Title"] = "See the Fizz";
 }
 
@@ -22,16 +23,16 @@
             <form class="row" asp-controller="Home" asp-action="Fizzy" method="post">
                 <div class="col">
                     <label asp-for="FizzValue" class="form-label">Fizz</label>
-                    <input asp-for="FIzzValue" class="form-control border-danger" type="number" aria-label="Fizz value"
+                    <input asp-for="FizzValue" class="form-control border-danger" type="number" aria-label="Fizz value"
                            placeholder="3" value="@Model.FizzValue">
                 </div>
                 <div class="col">
-                    <label for="buzz" class="form-label">Buzz</label>
-                    <input class="form-control border-danger" type="number" id="buzz" aria-label="Buzz value"
-                           placeholder="Buzz">
+                    <label asp-for="BuzzValue" class="form-label">Buzz</label>
+                    <input class="form-control border-danger" type="number" asp-for="BuzzValue" aria-label="Buzz value"
+                           placeholder="5" value="@Model.BuzzValue">
                 </div>
                 <div class="row mt-2 d-flex justify-content-end">
-                    <button class="btn btn-outline-dark w-auto" id="bubblyBtn" type="button">
+                    <button class="btn btn-outline-dark w-auto" type="submit">
                         Bubbly!
                     </button>
                 </div>
@@ -41,6 +42,35 @@
                 <table class="table table-striped">
                     <tbody id="results">
                         <!-- Results go here -->
+                        @if ( Model.Results.Count() > 0 )
+                        {
+                            var count = 0;
+                            for ( int i = 1; i <= 20; i++ )
+                            {
+                                <tr>
+                                    @for(int j = 0; j < 5; j++ )
+                                    {
+                                        if ( Model.Results[count] == "Fizz" )
+                                        {
+                                            <td class="ms-auto text-success">@Model.Results[count]</td>
+                                        }
+                                        else if ( Model.Results[count] == "Buzz" )
+                                        {
+                                            <td class="ms-auto text-primary">@Model.Results[count]</td>
+                                        }
+                                        else if ( Model.Results[count] == "FizzBuzz" )
+                                        {
+                                            <td class="ms-auto fw-bold text-danger">@Model.Results[count]</td>
+                                        }
+                                        else
+                                        { 
+                                            <td class="ms-auto">@Model.Results[count]</td>
+                                        }
+                                        count++;
+                                    }
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>

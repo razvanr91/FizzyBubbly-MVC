@@ -23,9 +23,50 @@ namespace FizzyBubbly_MVC.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Fizzy()
         {
-            return View();
+            FizzBuzz model = new();
+
+            model.FizzValue = 3;
+            model.BuzzValue = 5;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Fizzy(FizzBuzz fizzBuzz)
+        {
+            bool fizz;
+            bool buzz;
+
+
+            for ( var i = 1; i <= 100; i++ )
+            {
+                fizz = i % fizzBuzz.FizzValue == 0;
+                buzz = i % fizzBuzz.BuzzValue == 0;
+
+                if ( fizz && buzz )
+                {
+                    fizzBuzz.Results.Add("FizzBuzz");
+                }
+                else if ( fizz )
+                {
+                    fizzBuzz.Results.Add("Fizz");
+                }
+                else if ( buzz )
+                {
+                    fizzBuzz.Results.Add("Buzz");
+                }
+                else
+                {
+                    fizzBuzz.Results.Add(i.ToString());
+                }
+            }
+
+
+            return View(fizzBuzz);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
